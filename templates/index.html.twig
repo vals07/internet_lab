@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Приветствую
+    {% if app.user %}
+        , <a href="{{ path('account_info', {'login': app.user.login}) }}" class="btn btn-primary">{{ app.user.login }}</a>
+    {% endif %}
+    !</h1>
+    <h2>Это тестовое задание для Лаборатории Интернет</h2>
+    {% if app.user %}
+    <a href="{{ path('app_logout') }}" class="btn btn-primary">Выйти</a>
+    {% else %}
+        <a href="{{ path('app_login') }}" class="btn btn-primary">Войти</a>
+        <a href="{{ path('app_register') }}" class="btn btn-primary">Зарегистрироваться</a>
+    {% endif %}
+{% endblock %}
